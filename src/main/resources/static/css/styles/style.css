@@ -115,3 +115,9 @@ form .btn {
 form a {
     font-size: 11px;
 }
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

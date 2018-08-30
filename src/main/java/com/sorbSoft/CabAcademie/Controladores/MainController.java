@@ -4,6 +4,7 @@ package com.sorbSoft.CabAcademie.Controladores;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
@@ -38,11 +39,18 @@ public class MainController {
 //		return linkedInProvider.getLinkedInUserData(model, new LocalUser());
 //	}
 
-@RequestMapping(value = { "/course" }, method = RequestMethod.GET)
-public String course() {
-    return "course";
-}
-
-
-
+    @RequestMapping(value = { "/course" }, method = RequestMethod.GET)
+    public ModelAndView course() {
+        ModelAndView model = new ModelAndView();
+        System.out.println("There");
+        model.setViewName("course");
+        return model;
+    }
+    @RequestMapping(value = { "/home", "/"}, method = RequestMethod.GET)
+    public ModelAndView homePage() {
+        ModelAndView model = new ModelAndView();
+        System.out.println("There");
+        model.setViewName("index");
+        return model;
+    }
 }

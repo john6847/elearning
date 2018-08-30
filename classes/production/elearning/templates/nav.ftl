@@ -1,13 +1,5 @@
-<!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <title>Header</title>
-</head>
-
-<body>
-<nav class="fh5co-nav" role="navigation" th:fragment="navigation">
+<nav class="fh5co-nav" role="navigation">
     <div class="top">
         <div class="container">
             <div class="row">
@@ -75,6 +67,3 @@
         </div>
     </div>
 </nav>
-</body>
-
-</html>

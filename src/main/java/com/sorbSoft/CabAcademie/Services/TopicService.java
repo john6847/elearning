@@ -35,7 +35,7 @@ public class TopicService {
     public Topic updateTopic(Topic topic){
         Topic currentTopic= topicRepository.findOne(topic.getId());
         currentTopic.setCategory(topic.getCategory());
-        currentTopic.setNombre(topic.getNombre());
+        currentTopic.setName(topic.getName());
         return topicRepository.save(currentTopic);
     }
     public Topic saveTopic(Topic topic){
@@ -51,7 +51,23 @@ public class TopicService {
         if(topics.get(0).getCategory().getId()!=0){
             Category category = categoryRepository.findOne(topics.get(0).getCategory().getId());
             if(category!=null){
+                List<Topic> savedTopics = topicRepository.findAllByCategoryId(topics.get(0).getCategory().getId());
+                for (Topic sTopic: savedTopics){
+                    boolean existed = false;
+                    for(Topic nTopics: topics){
+                        System.out.println("s-> "+ sTopic.getId()+" n-> "+nTopics.getId());
 
+                        if(nTopics.getId()!=null && sTopic.getId() !=0){
+                            if(nTopics.getId().equals(sTopic.getId())) {
+                                existed = true;
+                                break;
+                            }
+                            existed =false;
+                        }
+                    }
+                    if(!existed)
+                        deleteTopic(sTopic.getId());
+                }
                checkTopics(category,topics );
 
             }else{
@@ -73,8 +89,9 @@ public class TopicService {
     }
 
     private void checkTopics(Category category, List<Topic> topics){
+
         for(Topic topic: topics){
-            if(topic.getId()==0){
+            if(topic.getId()== null){
                 topic.setCategory(category);
                 topicRepository.save(topic);
             }else{
@@ -83,9 +100,18 @@ public class TopicService {
             }
         }
     }
+    public List<Topic>fetchAllTopicByCategory(Long id){
+       return topicRepository.findAllByCategoryId(id);
+    }
 
     public void deleteTopic(Long id){
         topicRepository.delete(id);
+    }
+
+    public void deleteTopicByCategory(Long id){
+        List<Topic> topics = topicRepository.findAllByCategoryId(id);
+        topics.forEach((Topic topic) -> topicRepository.delete(topic));
+
     }
     //other delete methods
     //other fetching methods

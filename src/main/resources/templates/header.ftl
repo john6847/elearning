@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="header">
+
+
+<head >
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>CabAcademie</title>
@@ -29,58 +29,58 @@
     <meta name="twitter:image" content=""/>
     <meta name="twitter:url" content=""/>
     <meta name="twitter:card" content=""/>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link type="text/css" rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet"/>
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet"/>
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet"/>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link type="text/css" rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/animate.css"/>
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/icomoon.css"/>
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.css"/>
 
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="css/magnific-popup.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/magnific-popup.css"/>
 
     <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/owl.carousel.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/owl.theme.default.min.css"/>
 
     <!-- Flexslider  -->
-    <link rel="stylesheet" href="css/flexslider.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/flexslider.css"/>
 
     <!-- Pricing -->
-    <link rel="stylesheet" href="css/pricing.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/pricing.css"/>
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="/font-awesome/css/font-awesome.css"/>
 
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+
+    <script type="text/javascript" src="/js/modernizr-2.6.2.min.js"></script>
 
     <!-- Modernizr JS -->
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
+    <script type="text/javascript" src="/js/respond.min.js"></script>
     <![endif]-->
 
-    <script src="js/angular.js"></script>
-    <script src="js/angular-route.js"></script>
-    <script src="js/angular-ui-router.js"></script>
-    <script src="js/angular/app.js"></script>
+    <script type="text/javascript" src="/js/angular.js"></script>
+    <script type="text/javascript" src="/js/ngStorage.min.js"></script>
+    <script type="text/javascript" src="/js/angular-route.js"></script>
+    <script type="text/javascript" src="/js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/js/dirPagination.js"></script>
+    <script type="text/javascript" src="/js/angular/app.js"></script>
     <!-- Angular Material Library -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-    <script src="js/angular-aria.js"></script>
-    <script src="js/angular-messages.js"></script>
-    <script src="js/angular-cookies.js"></script>
-    <script src="js/angular-resource.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script type="text/javascript" src="/js/angular-aria.js"></script>
+    <script type="text/javascript" src="/js/angular-messages.js"></script>
+    <script type="text/javascript" src="/js/angular-cookies.js"></script>
+    <script type="text/javascript" src="/js/angular-resource.js"></script>
 
 </head>
-<body>
-</body>
-
-</html>

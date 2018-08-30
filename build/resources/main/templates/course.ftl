@@ -1,11 +1,15 @@
 <!DOCTYPE HTML>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/layout">
-<head>
-    <title>Course</title>
-</head>
-<body>
-<div layout:fragment="content">
-    <div id="fh5co-course" ng-controller="CourseController as c_ctrl" ng-show="couController.courses">
+<html ng-app="cabAcademie"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<!-- header goes here -->
+<#include "header.ftl">
+<body ng-cloak class="ng-cloak">
+<div id="page">
+    <!--nav  bar goes here-->
+<#include "nav.ftl">
+    <div id="fh5co-course"  class="container" ng-controller="CourseController as c_ctrl" ng-show="couController.courses" >
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
@@ -112,7 +116,16 @@
             </div>
         </div>
     </div>
+
+
+<!-- footer goes here -->
+<#include "footer.ftl">
+
 </div>
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+<!--scripts-->
+<#include "scripts.ftl">
 </body>
 </html>
-

@@ -5,8 +5,11 @@ import com.sorbSoft.CabAcademie.Entities.Course;
 import com.sorbSoft.CabAcademie.Entities.Syllabus;
 import com.sorbSoft.CabAcademie.Repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -26,9 +29,20 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
+    public Page<Course> fetchAllCoursesByPage(int page, int itemsPerPage){
+        Pageable pageable = new PageRequest(page, itemsPerPage);
+        return courseRepository.findAll(pageable);
+    }
+
+    public Page<Course> fetchAllCoursesByPageAndSerchText(int page, int itemsPerPage, String searchText){
+        Pageable pageable = new PageRequest(page, itemsPerPage);
+        return courseRepository.findByTitleContainsAllIgnoreCase(searchText, pageable);
+    }
+
     public Course fetchCourse(Long id){
         return courseRepository.findOne(id);
     }
+
 
     public Course updateCourse (Course course){
         Course currentCourse= courseRepository.findOne(course.getId());

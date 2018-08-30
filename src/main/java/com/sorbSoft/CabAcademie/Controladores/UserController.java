@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 /**
@@ -30,6 +31,17 @@ public class UserController {
 
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/loggedIn")
+    public ResponseEntity<Usuario> getLoggedInUser(Principal user){
+        System.out.println("Printing user");
+        System.out.println(user.getName());
+        Usuario loadedUser= userService.buscarUsuarioPorUsername(user.getName());
+
+        return new ResponseEntity<>(loadedUser, HttpStatus.OK);
+
+    }
+
 
     @GetMapping()
     public ResponseEntity<List<Usuario>> getAllUser(){

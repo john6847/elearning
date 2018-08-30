@@ -43,10 +43,9 @@ public class ConfiguracionDeSeguridad extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/","/course/**","/home")
-                //.hasAnyRole("ADMIN","USER")
+                .antMatchers("/","/** ","/home")//.hasAnyRole("ADMIN","USER")
                 .permitAll()
-                .antMatchers("/admin/**")
+                .antMatchers("/zoneAdmin/**")
                 .hasRole("ADMIN").anyRequest().authenticated()
                 .and().csrf().disable()
                 .formLogin()
@@ -72,6 +71,7 @@ public class ConfiguracionDeSeguridad extends WebSecurityConfigurerAdapter {
         web
                 .ignoring()
                 .antMatchers( "/fonts/**","/font-awesome/**", "/css/**", "/js/**", "/images/**");
+
     }
 
 }

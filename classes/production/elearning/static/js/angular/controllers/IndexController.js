@@ -1,11 +1,11 @@
 'use strict';
-app.controller('IndexController', ['IndexService','$scope','$localStorage', function(IndexService, $scope, $localStorage) {
+app.controller('IndexController', ['IndexService','$scope','$window', function(IndexService, $scope, $window) {
     var self = this;
 
-     self.user = angular.fromJson(localStorage.getItem('user'));
-     if(!self.user)
-        fetchUser();
+     self.user = angular.fromJson($window.localStorage.getItem('user'));
 
+
+    fetchUser();
     function fetchUser() {
         IndexService.fetchUser()
             .then(

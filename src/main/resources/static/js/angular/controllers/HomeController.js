@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('HomeController', ['$localStorage',function ($localStorage,$scope,$http) {
+app.controller('HomeController', '$scope','$http',['$window',function ($window,$scope,$http) {
     // $scope.greeting = data;
     var self = this;
-    self.user = angular.fromJson(localStorage.getItem('user'));
+    self.user = angular.fromJson($window.localStorage.getItem('user'));
 }])

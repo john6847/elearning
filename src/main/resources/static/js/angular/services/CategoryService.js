@@ -29,7 +29,7 @@ app.factory('CategoryService',['$http', '$q', function($http, $q){
         return deferred.promise;
     },
 
-    updateCategory: function updateCategory(category, id) {
+        updateCategoryAndTopics: function updateCategoryAndTopics(topics) {
         var deferred = $q.defer();
         $http.put("/api/category/" + id, category).then(
             function (response) {
@@ -44,6 +44,17 @@ app.factory('CategoryService',['$http', '$q', function($http, $q){
     deleteCategory: function deleteCategory(id) {
         var deferred = $q.defer();
         $http.delete("/api/category/" + id)
+            .then(function (response) {
+                deferred.resolve(response.data)
+            }, function (errResponse) {
+                console.error(errResponse);
+                deferred.reject(errResponse);
+            });
+        return deferred.promise;
+    },
+    fetchTopics: function fetchTopics(id) {
+        var deferred = $q.defer();
+        $http.get("/api/category/topics/" + id)
             .then(function (response) {
                 deferred.resolve(response.data)
             }, function (errResponse) {

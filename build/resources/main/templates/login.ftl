@@ -5,7 +5,7 @@
 <body ng-cloak class="ng-cloak">
 <div id="page">
     <!--nav  bar goes here-->
-<#include "nav.html">
+<#include "nav.ftl">
     <!-- aside goes here  -->
     <div ng-controller="LoginController">
         <link rel="stylesheet"

@@ -18,6 +18,8 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private TopicService topicService;
     public List<Category> fetchAllCategories(){
         return categoryRepository.findAll();
     }
@@ -37,8 +39,18 @@ public class CategoryService {
     public Category saveCategory (Category category){
         return categoryRepository.save(category);
     }
-    public void deleteCategory(Long id){
+    public Category deleteCategory(Long id){
+        topicService.deleteTopicByCategory(id);
+        Category category = categoryRepository.findOne(id);
+        if(category!=null){
+            List<Category> categories = categoryRepository.findAllByParentCategory(category.getParentCategory());
+            categories.forEach(cat -> {
+                cat.setParentCategory(null);
+                categoryRepository.save(cat);
+            });
+        }
         categoryRepository.delete(id);
+        return category;
     }
     //other delete methods
     //other fetching methods

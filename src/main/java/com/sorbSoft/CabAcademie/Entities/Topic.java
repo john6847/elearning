@@ -15,7 +15,7 @@ public class Topic implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
+    private String name;
     @ManyToOne(optional = false)
     @JoinColumn(name="category_id")
     private Category category;

@@ -1,13 +1,5 @@
-<!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <title>Header</title>
-</head>
-
-<body>
-<footer th:fragment="footer" id="fh5co-footer" role="contentinfo" style="background-image: url(images/img_bg_4.jpg);">
+<footer id="fh5co-footer" role="contentinfo" style="background-image: url(images/img_bg_4.jpg);">
     <div class="overlay"></div>
     <div class="container">
         <div class="row row-pb-md">
@@ -73,7 +65,3 @@
 
     </div>
 </footer>
-
-</body>
-
-</html>

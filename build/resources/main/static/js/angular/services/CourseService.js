@@ -1,9 +1,21 @@
 'use strict'; 
 app.factory('CourseService',['$http', '$q', function($http, $q){
     return{
-        fetchAllCourses:function(){ // fetching all courses from backend
+        filterAllCourses:function(page, itemsPerPage, searchText){ // filtering all courses from backend
             var deferred = $q.defer();
-            $http.get('/api/course/')
+            $http.get('/api/course/'+ page+"/"+itemsPerPage+'/'+searchText)
+                .then(function(response){
+                    deferred.resolve(response.data);
+                },function(error){
+                    console.error(error);
+                    deferred.reject(error);
+                }
+            );
+            return deferred.promise;
+        },
+        fetchAllCoursesByPage:function(page, itemsPerPage){ // fetching all courses from backend by page
+            var deferred = $q.defer();
+            $http.get('/api/course/'+ page+"/"+itemsPerPage)
                 .then(function(response){
                     deferred.resolve(response.data);
                 },function(error){

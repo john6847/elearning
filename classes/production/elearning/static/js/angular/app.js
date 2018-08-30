@@ -1,5 +1,5 @@
 //'use strict'
-var app = angular.module('cabAcademie', ['ngRoute', 'ngCookies', 'ngResource', 'ngMaterial','ngMessages']);
+var app = angular.module('cabAcademie', ['ngRoute', 'ngCookies','ngStorage', 'ngResource', 'ngMaterial','ngMessages', 'angularUtils.directives.dirPagination']);
 
 
 // md-card configuration

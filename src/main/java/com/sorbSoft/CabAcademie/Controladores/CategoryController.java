@@ -45,6 +45,12 @@ public class CategoryController {
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
+    @GetMapping(value="/topics/{id}")
+    public ResponseEntity<List<Topic>> getAllTopicsByCategory(@PathVariable Long id){
+        List<Topic> topics= topicService.fetchAllTopicByCategory(id);
+        return new ResponseEntity<>(topics, HttpStatus.OK);
+    }
+
     @PostMapping(value = "/topic")
     public ResponseEntity<List<Topic>> saveTopic(@Valid @RequestBody List<Topic> topics){
         if(!topicService.saveTopics(topics))
@@ -77,13 +83,12 @@ public class CategoryController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<String> deleteCategory(@PathVariable Long id ){
+    public ResponseEntity<Void> deleteCategory(@PathVariable Long id ){
         if(id<0)
             return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        if(categoryService.fetchCategory(id)==null)
+        if( categoryService.deleteCategory(id)==null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-        categoryService.deleteCategory(id);
-        return new ResponseEntity<>("Category Deleted!", HttpStatus.OK);
+        return new ResponseEntity<>( HttpStatus.OK);
     }
 }

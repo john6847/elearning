@@ -4,7 +4,8 @@ app.factory('IndexService',['$http', '$q', function($http, $q){
 
     fetchUser: function fetchUser() {
         var deferred = $q.defer();
-        $http.put("/api/user/").then(
+        console.log("Going to backend")
+        $http.get("/api/user/loggedIn").then(
             function (response) {
                 deferred.resolve(response.data)
             }, function (errResponse) {
