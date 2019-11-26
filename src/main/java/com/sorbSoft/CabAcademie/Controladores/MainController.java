@@ -46,11 +46,10 @@ public class MainController {
         model.setViewName("course");
         return model;
     }
-    @RequestMapping(value = { "/home", "/"}, method = RequestMethod.GET)
-    public ModelAndView homePage() {
-        ModelAndView model = new ModelAndView();
-        System.out.println("There");
-        model.setViewName("index");
-        return model;
-    }
+//    @RequestMapping(value = { "/home", "/"}, method = RequestMethod.GET)
+//    public ModelAndView homePage() {
+//        ModelAndView model = new ModelAndView();
+//        model.setViewName("index");
+//        return model;
+//    }
 }
